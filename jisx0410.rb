@@ -14,6 +14,9 @@ module JISX0410
 
   STRAIGHT = [ICHIJI, NIJI, SANJI, 
               NIBUN, YONBUN, HACHIBUN, JYUROKUBUN, SANJYUNIBUN]
+  JIS = [ICHIJI, NIJI, SANJI]
+  BUNS = [NIBUN, YONBUN, HACHIBUN, JYUROKUBUN, SANJYUNIBUN]
+  BAIS = [GOBAI, NIBAI]
 
   STEPS = {
     ICHIJI => [1, Rational(2, 3)],
@@ -55,9 +58,9 @@ module JISX0410
   module_function :level_of
 
   def divs_to_code_component(lat_div, lng_div, level)
-    if [ICHIJI, NIJI, SANJI].include?(level)
+    if JIS.include?(level)
       "#{lat_div}#{lng_div}"
-    elsif [NIBUN, YONBUN, HACHIBUN, JYUROKUBUN, SANJYUNIBUN].include?(level)
+    elsif BUNS.include?(level)
       case [lng_div, lat_div]
       when [0, 0]
         1.to_s
@@ -97,22 +100,24 @@ module JISX0410
   module_function :coerce_code
 
   def adjacent(code, d_lng, d_lat)
-    raise
+    raise "not yet implemented."
   end
   module_function :adjacent
 
   def children(code)
-    raise
+    raise "not yet implemented."
   end
   module_function :children
 
-  def bbox(code)
-    raise
+  def decode_to_bbox(code)
+    raise "not yet implemented."
   end
-  module_function :bbox
+  module_function :decode_to_bbox
+  alias :bbox :decode_to_bbox
 
-  def southwest(code)
-    raise
+  def decode_to_point(code)
+    raise "not yet implemented."
   end
-  module_function :southwest
+  module_function :decode_to_point
+  alias :sowthwest :decode_to_point
 end

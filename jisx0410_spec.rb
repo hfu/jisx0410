@@ -1,6 +1,6 @@
 require 'jisx0410'
 
-describe JISX0410, "random test" do
+describe JISX0410, "when normal use" do
   before do
   end
 
